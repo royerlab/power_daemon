@@ -4,10 +4,7 @@ import subprocess
 import os
 import time
 import signal
-from pathlib import Path
-
-SOCKET_ADDRESS = "/tmp/board_daemon.sock"
-DAEMON_SCRIPT = Path(__file__).parent / "board_daemon.py"
+from config import SOCKET_ADDRESS, DAEMON_SCRIPT
 
 def ensure_daemon_running():
     if not os.path.exists(SOCKET_ADDRESS):

@@ -2,10 +2,7 @@ import pyfirmata2
 import socket
 import threading
 import os
-
-PORT = "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A5069RR4-if00-port0"
-PIN = "d:2:o"
-SOCKET_ADDRESS = "/tmp/board_daemon.sock"
+from config import SOCKET_ADDRESS, PORT, PIN
 
 class BoardDaemon:
     def __init__(self):

@@ -1,3 +1,7 @@
+# This is a simple example of how to control the arduino board - however, it is slow, about 7s per
+# invocation because the board is not always connected. The daemon.py script amortizes the connection
+# time by keeping the connection open and using a socket to communicate with the CLI.
+
 import argparse
 import pyfirmata2
 

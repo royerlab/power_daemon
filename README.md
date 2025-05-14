@@ -5,10 +5,10 @@ This system allows us to control and reset microscope hardware from our acquisit
 
 ## Components
 
-### 1. `board_daemon.py`
+### 1. `daemon.py`
 - Initializes the Arduino Nano and manages its state. The initialization is slow - (5s). The daemon amortizes this time cost at the beginning.
 - Sends logic signals to the power bar to control its state.
-- Listens for commands via a Unix socket (`/tmp/board_daemon.sock`).
+- Listens for commands via a Unix socket (`/tmp/royerlab_power_daemon.sock`).
 - Supported commands:
   - `on`: Powers on the power bar.
   - `off`: Powers off the power bar.
@@ -42,7 +42,7 @@ python3 main.py [action]
 - `relaunch`: Restarts the daemon process.
 
 ## Notes
-- Ensure the Arduino Nano is connected to the specified port (`/dev/serial/by-id/...`). This can be changed using the PORT constant in the board daemon.
-- The daemon uses a Unix socket located at `/tmp/board_daemon.sock`. If the socket file exists but the daemon is not running, it may need to be manually removed.
+- Ensure the Arduino Nano is connected to the specified port (`/dev/serial/by-id/...`). This can be changed using the PORT constant in config.py.
+- The daemon uses a Unix socket located at `/tmp/royerlab_power_daemon.sock`. If the socket file exists but the daemon is not running, it may need to be manually removed.
 - The power bar must be connected to the Arduino Nano (pin D2 is hardcoded) and configured to accept logic signals for proper operation.
 - The Arduino must be running the standard firmata sketch.
